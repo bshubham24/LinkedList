@@ -125,4 +125,24 @@ public class LinkedListTest {
 		boolean result = secondNode.getNext().equals(fourthNode) && fourthNode.getNext().equals(thirdNode);
 		assertTrue(result);
 	}
+
+	@Test
+	public void whenGivenAValueDeleteThatNodeInTheListAndShowSizeOfList() {
+		Node<Integer> firstNode = new Node<Integer>(56);
+		Node<Integer> secondNode = new Node<Integer>(30);
+		Node<Integer> thirdNode = new Node<Integer>(40);
+		Node<Integer> fourthNode = new Node<Integer>(70);
+		LinkedList<Integer> linkedList = new LinkedList<>();
+		linkedList.append(firstNode);
+		linkedList.append(secondNode);
+		linkedList.append(thirdNode);
+		linkedList.append(fourthNode);
+		System.out.println("Size before deletion: " + linkedList.sizeOfList());
+		linkedList.printLinkedList();
+		linkedList.delete(40);
+		System.out.println("Size after deletion: " + linkedList.sizeOfList());
+		linkedList.printLinkedList();
+		boolean result = secondNode.getNext().equals(fourthNode);
+		assertTrue(result);
+	}
 }

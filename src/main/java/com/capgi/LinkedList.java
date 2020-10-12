@@ -91,6 +91,29 @@ public class LinkedList<K> {
 		tempNode.setNext(newNode);
 	}
 
+	public void delete(K value) {
+		INode<K> NodeBeforetempNode = getHead();
+		INode<K> tempNode = searchNode(value);
+		if (tempNode == null) {
+			System.out.println("Node not present");
+		} else {
+			while (NodeBeforetempNode.getNext() != tempNode) {
+				NodeBeforetempNode = NodeBeforetempNode.getNext();
+			}
+			NodeBeforetempNode.setNext(tempNode.getNext());
+		}
+	}
+
+	public int sizeOfList() {
+		INode tempNode = getHead();
+		int size = 0;
+		while (tempNode != null) {
+			tempNode = tempNode.getNext();
+			size++;
+		}
+		return size;
+	}
+
 	public void printLinkedList() {
 		INode tempNode = this.head;
 		while (tempNode != null) {
