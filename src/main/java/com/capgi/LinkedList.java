@@ -52,6 +52,11 @@ public class LinkedList {
 		}
 	}
 
+	public void insertInBetweenTwoNumbers(INode preNode, INode postNode, INode newNode) {
+		preNode.setNext(newNode);
+		newNode.setNext(postNode);
+	}
+
 	public void printLinkedList() {
 		INode tempNode = this.head;
 		while (tempNode != null) {
