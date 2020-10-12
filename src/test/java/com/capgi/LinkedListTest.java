@@ -2,6 +2,7 @@ package com.capgi;
 
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class LinkedListTest {
@@ -94,6 +95,19 @@ public class LinkedListTest {
 		boolean result = linkedList.getHead().equals(firstNode) && linkedList.getHead().getNext().equals(secondNode)
 				&& linkedList.getTail().equals(secondNode);
 		assertTrue(result);
+	}
+
+	@Test
+	public void whenGivenAKeySearchLinkedListAndReturnThatNode() {
+		Node<Integer> firstNode = new Node<Integer>(56);
+		Node<Integer> secondNode = new Node<Integer>(30);
+		Node<Integer> thirdNode = new Node<Integer>(70);
+		LinkedList<Integer> linkedList = new LinkedList<>();
+		linkedList.append(firstNode);
+		linkedList.append(secondNode);
+		linkedList.append(thirdNode);
+		linkedList.printLinkedList();
+		Assert.assertEquals(secondNode, linkedList.searchNode(30));
 	}
 
 	@Test
