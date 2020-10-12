@@ -6,7 +6,20 @@ import org.junit.Test;
 
 public class LinkedListTest {
 	@Test
-	public void givenThreeNumbersWhenAddedT0LinkedListShouldGetAddedInBack() {
+	public void WhenGivenThreeNumbersShouldPassLinkedListTest() {
+		Node<Integer> firstNode = new Node<Integer>(56);
+		Node<Integer> secondNode = new Node<Integer>(30);
+		Node<Integer> thirdNode = new Node<Integer>(70);
+
+		firstNode.setNext(secondNode);
+		secondNode.setNext(thirdNode);
+		boolean result = firstNode.getNext().equals(secondNode) && secondNode.getNext().equals(thirdNode);
+
+		assertTrue(result);
+	}
+
+	@Test
+	public void givenThreeNumbersWhenAddedT0LinkedListShouldGetAddedInFront() {
 		Node<Integer> firstNode = new Node<Integer>(70);
 		Node<Integer> secondNode = new Node<Integer>(30);
 		Node<Integer> thirdNode = new Node<Integer>(56);
@@ -64,6 +77,23 @@ public class LinkedListTest {
 		linkedList.printLinkedList();
 		boolean result = linkedList.getHead().equals(secondNode) && linkedList.getHead().getNext().equals(thirdNode)
 				&& linkedList.getTail().equals(thirdNode);
+		assertTrue(result);
+	}
+
+	@Test
+	public void givenThreeNumbersWhenPopShouldDeleteLastNode() {
+		Node<Integer> firstNode = new Node<Integer>(56);
+		Node<Integer> secondNode = new Node<Integer>(30);
+		Node<Integer> thirdNode = new Node<Integer>(70);
+		LinkedList linkedList = new LinkedList();
+		linkedList.append(firstNode);
+		linkedList.append(secondNode);
+		linkedList.append(thirdNode);
+		linkedList.printLinkedList();
+		linkedList.popLast();
+		linkedList.printLinkedList();
+		boolean result = linkedList.getHead().equals(firstNode) && linkedList.getHead().getNext().equals(secondNode)
+				&& linkedList.getTail().equals(secondNode);
 		assertTrue(result);
 	}
 }
