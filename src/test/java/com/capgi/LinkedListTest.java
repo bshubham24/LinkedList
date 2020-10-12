@@ -2,6 +2,7 @@ package com.capgi;
 
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public class LinkedListTest {
@@ -14,7 +15,6 @@ public class LinkedListTest {
 		firstNode.setNext(secondNode);
 		secondNode.setNext(thirdNode);
 		boolean result = firstNode.getNext().equals(secondNode) && secondNode.getNext().equals(thirdNode);
-
 		assertTrue(result);
 	}
 
@@ -23,7 +23,7 @@ public class LinkedListTest {
 		Node<Integer> firstNode = new Node<Integer>(70);
 		Node<Integer> secondNode = new Node<Integer>(30);
 		Node<Integer> thirdNode = new Node<Integer>(56);
-		LinkedList linkedList = new LinkedList();
+		LinkedList<Integer> linkedList = new LinkedList<>();
 		linkedList.add(firstNode);
 		linkedList.add(secondNode);
 		linkedList.add(thirdNode);
@@ -38,7 +38,7 @@ public class LinkedListTest {
 		Node<Integer> firstNode = new Node<Integer>(56);
 		Node<Integer> secondNode = new Node<Integer>(30);
 		Node<Integer> thirdNode = new Node<Integer>(70);
-		LinkedList linkedList = new LinkedList();
+		LinkedList<Integer> linkedList = new LinkedList<>();
 		linkedList.append(firstNode);
 		linkedList.append(secondNode);
 		linkedList.append(thirdNode);
@@ -53,7 +53,7 @@ public class LinkedListTest {
 		Node<Integer> firstNode = new Node<Integer>(56);
 		Node<Integer> secondNode = new Node<Integer>(30);
 		Node<Integer> thirdNode = new Node<Integer>(70);
-		LinkedList linkedList = new LinkedList();
+		LinkedList<Integer> linkedList = new LinkedList<>();
 		linkedList.append(firstNode);
 		linkedList.append(thirdNode);
 		linkedList.insertInBetweenTwoNumbers(firstNode, thirdNode, secondNode);
@@ -68,7 +68,7 @@ public class LinkedListTest {
 		Node<Integer> firstNode = new Node<Integer>(56);
 		Node<Integer> secondNode = new Node<Integer>(30);
 		Node<Integer> thirdNode = new Node<Integer>(70);
-		LinkedList linkedList = new LinkedList();
+		LinkedList<Integer> linkedList = new LinkedList<>();
 		linkedList.append(firstNode);
 		linkedList.append(secondNode);
 		linkedList.append(thirdNode);
@@ -85,7 +85,7 @@ public class LinkedListTest {
 		Node<Integer> firstNode = new Node<Integer>(56);
 		Node<Integer> secondNode = new Node<Integer>(30);
 		Node<Integer> thirdNode = new Node<Integer>(70);
-		LinkedList linkedList = new LinkedList();
+		LinkedList<Integer> linkedList = new LinkedList<>();
 		linkedList.append(firstNode);
 		linkedList.append(secondNode);
 		linkedList.append(thirdNode);
@@ -95,5 +95,18 @@ public class LinkedListTest {
 		boolean result = linkedList.getHead().equals(firstNode) && linkedList.getHead().getNext().equals(secondNode)
 				&& linkedList.getTail().equals(secondNode);
 		assertTrue(result);
+	}
+
+	@Test
+	public void whenGivenAKeySearchLinkedListAndReturnThatNode() {
+		Node<Integer> firstNode = new Node<Integer>(56);
+		Node<Integer> secondNode = new Node<Integer>(30);
+		Node<Integer> thirdNode = new Node<Integer>(70);
+		LinkedList<Integer> linkedList = new LinkedList<>();
+		linkedList.append(firstNode);
+		linkedList.append(secondNode);
+		linkedList.append(thirdNode);
+		linkedList.printLinkedList();
+		Assert.assertEquals(secondNode, linkedList.searchNode(30));
 	}
 }

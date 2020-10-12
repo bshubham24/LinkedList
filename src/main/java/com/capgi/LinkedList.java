@@ -1,6 +1,6 @@
 package com.capgi;
 
-public class LinkedList {
+public class LinkedList<K> {
 	private INode head;
 	private INode tail;
 
@@ -71,6 +71,17 @@ public class LinkedList {
 		}
 		this.tail = tempNodeHead;
 		tempNodeHead.setNext(null);
+		return tempNode;
+	}
+
+	public INode<K> searchNode(K value) {
+		INode<K> tempNode = getHead();
+		while (tempNode != null) {
+			if (tempNode.getKey() == value) {
+				return tempNode;
+			}
+			tempNode = tempNode.getNext();
+		}
 		return tempNode;
 	}
 
