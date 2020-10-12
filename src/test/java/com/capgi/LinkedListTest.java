@@ -109,4 +109,20 @@ public class LinkedListTest {
 		linkedList.printLinkedList();
 		Assert.assertEquals(secondNode, linkedList.searchNode(30));
 	}
+
+	@Test
+	public void whenGivenAValueSearchThatNodeInTheListAndInsertNewNode() {
+		Node<Integer> firstNode = new Node<Integer>(56);
+		Node<Integer> secondNode = new Node<Integer>(30);
+		Node<Integer> thirdNode = new Node<Integer>(70);
+		Node<Integer> fourthNode = new Node<Integer>(40);
+		LinkedList<Integer> linkedList = new LinkedList<>();
+		linkedList.append(firstNode);
+		linkedList.append(secondNode);
+		linkedList.append(thirdNode);
+		linkedList.InsertAfterANode(30, fourthNode);
+		linkedList.printLinkedList();
+		boolean result = secondNode.getNext().equals(fourthNode) && fourthNode.getNext().equals(thirdNode);
+		assertTrue(result);
+	}
 }

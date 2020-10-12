@@ -85,6 +85,12 @@ public class LinkedList<K> {
 		return tempNode;
 	}
 
+	public void InsertAfterANode(K value, INode newNode) {
+		INode<K> tempNode = searchNode(value);
+		newNode.setNext(tempNode.getNext());
+		tempNode.setNext(newNode);
+	}
+
 	public void printLinkedList() {
 		INode tempNode = this.head;
 		while (tempNode != null) {
