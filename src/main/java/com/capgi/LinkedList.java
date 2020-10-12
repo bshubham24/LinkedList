@@ -1,6 +1,6 @@
 package com.capgi;
 
-public class LinkedList<K> {
+public class LinkedList<K extends Comparable<K>> {
 	private INode head;
 	private INode tail;
 
@@ -112,6 +112,31 @@ public class LinkedList<K> {
 			size++;
 		}
 		return size;
+	}
+
+	public void addAndSort(INode newNode) {
+		INode tempNode = getHead();
+		INode tempNode2 = getHead();
+		if (tempNode == null) {
+			setHead(newNode);
+			setTail(newNode);
+		} else if (tempNode != null && tempNode.getKey().compareTo(newNode.getKey()) > 0) {
+			setHead(newNode);
+			newNode.setNext(tempNode);
+
+		} else {
+			while (tempNode != null && tempNode.getKey().compareTo(newNode.getKey()) < 0) {
+				tempNode2 = tempNode;
+				tempNode = tempNode.getNext();
+			}
+			newNode.setNext(tempNode);
+			tempNode2.setNext(newNode);
+			if (tempNode == null) {
+				setTail(newNode);
+			}
+
+		}
+
 	}
 
 	public void printLinkedList() {
