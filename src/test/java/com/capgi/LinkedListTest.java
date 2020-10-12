@@ -145,4 +145,24 @@ public class LinkedListTest {
 		boolean result = secondNode.getNext().equals(fourthNode);
 		assertTrue(result);
 	}
+
+	@Test
+	public void whenNumbersAreAddedListShouldGetSortedAlso() {
+		Node<Integer> firstNode = new Node<Integer>(56);
+		Node<Integer> secondNode = new Node<Integer>(30);
+		Node<Integer> thirdNode = new Node<Integer>(40);
+		Node<Integer> fourthNode = new Node<Integer>(70);
+		Node<Integer> fifthNode = new Node<Integer>(100);
+		Node<Integer> sixthNode = new Node<Integer>(25);
+		LinkedList<Integer> linkedList = new LinkedList<>();
+		linkedList.addAndSort(firstNode);
+		linkedList.addAndSort(secondNode);
+		linkedList.addAndSort(thirdNode);
+		linkedList.addAndSort(fourthNode);
+		linkedList.addAndSort(fifthNode);
+		linkedList.addAndSort(sixthNode);
+		linkedList.printLinkedList();
+		boolean result = linkedList.getHead().equals(sixthNode) && linkedList.getTail().equals(fifthNode);
+		assertTrue(result);
+	}
 }

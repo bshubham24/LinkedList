@@ -1,6 +1,6 @@
 package com.capgi;
 
-public interface INode<K> {
+public interface INode<K extends Comparable<K>> {
 	K getKey();
 
 	INode getNext();
