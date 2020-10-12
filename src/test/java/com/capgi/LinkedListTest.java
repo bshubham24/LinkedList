@@ -49,4 +49,21 @@ public class LinkedListTest {
 				&& linkedList.getTail().equals(thirdNode);
 		assertTrue(result);
 	}
+
+	@Test
+	public void givenThreeNumbersWhenPopShouldDeleteFirstNode() {
+		Node<Integer> firstNode = new Node<Integer>(56);
+		Node<Integer> secondNode = new Node<Integer>(30);
+		Node<Integer> thirdNode = new Node<Integer>(70);
+		LinkedList linkedList = new LinkedList();
+		linkedList.append(firstNode);
+		linkedList.append(secondNode);
+		linkedList.append(thirdNode);
+		linkedList.printLinkedList();
+		linkedList.pop();
+		linkedList.printLinkedList();
+		boolean result = linkedList.getHead().equals(secondNode) && linkedList.getHead().getNext().equals(thirdNode)
+				&& linkedList.getTail().equals(thirdNode);
+		assertTrue(result);
+	}
 }
